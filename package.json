@@ -1,0 +1,41 @@
+{
+  "name": "@reactioncommerce/data-factory",
+  "version": "0.0.0-development",
+  "description": "Factory util that creates mock data fixtures used in testing Reaction Commerce applications",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx rimraf dist && babel src --out-dir dist",
+    "lint": "npx eslint src",
+    "test": "npx jest"
+  },
+  "author": "Reaction Commerce <hello@reactioncommerce.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "simpl-schema-mockdoc": "^1.0.5"
+  },
+  "devDependencies": {
+    "@reactioncommerce/eslint-config": "^1.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^22.4.4",
+    "rimraf": "^2.6.2"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-2"
+    ],
+    "sourceMaps": true
+  },
+  "eslintConfig": {
+    "extends": "@reactioncommerce"
+  }
+}
