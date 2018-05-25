@@ -11,7 +11,9 @@
   "author": "Reaction Commerce <hello@reactioncommerce.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "simpl-schema-mockdoc": "^1.0.5"
+    "faker": "^4.1.0",
+    "lodash": "^4.17.10",
+    "simpl-schema": "^1.5.0"
   },
   "devDependencies": {
     "@reactioncommerce/eslint-config": "^1.7.0",
