@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx rimraf dist && babel src --out-dir dist",
     "lint": "npx eslint src",
-    "test": "npx jest"
+    "test": "npx jest src"
   },
   "author": "Reaction Commerce <hello@reactioncommerce.com>",
   "license": "GPL-3.0",
