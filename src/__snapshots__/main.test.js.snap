@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createFactoryForSchema should attach schema to Factory object: [object Object] 1`] = `
+Object {
+  "Thing": Object {
+    "makeMany": [Function],
+    "makeOne": [Function],
+  },
+}
+`;

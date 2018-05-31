@@ -162,7 +162,7 @@ export function createFactoryForSchema(propName, schema) {
   }
 
   Factory[propName] = {
-    makeOne(props, index) {
+    makeOne(props = {}, index) {
       const doc = getMockDoc(schema, "mock", true);
       Object.keys(props).forEach((key) => {
         const value = props[key];
@@ -176,7 +176,8 @@ export function createFactoryForSchema(propName, schema) {
     },
     makeMany(length, props) {
       return Array.from({ length }).map((value, index) =>
-        this.makeOne(props, index));
+        this.makeOne(props, index)
+      );
     }
   };
 }
