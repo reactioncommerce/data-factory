@@ -2,7 +2,7 @@
 
 _**Note:** This project is a work in progress and should not be used in production at this time._
 
-Reaction Data Factory provides a simple fixture factory for testing and seeding Reaction Commerce applications.
+Reaction Data Factory creates a simple fixture factory from [SimpleSchema](https://github.com/aldeed/simple-schema-js) definitions for testing and seeding Reaction Commerce applications.
 
 ## Install
 
@@ -15,13 +15,38 @@ npm install @reactioncommerce/data-factory
 
 Adding schemas to the Factory object.
 ``` js
+import SimpleSchema from 'simpl-schema';
 import { createFactoryForSchema } from "@reactioncommerce/data-factory";
-createFactoryForSchema("Tag", Tag);
+
+const Example = new SimpleSchema({
+  strProp: String,
+  boolProp: Boolean,
+});
+createFactoryForSchema("Example", Example);
 ```
 
 Creating mock data structures.
 ``` js
 import { Factory } from "@reactioncommerce/data-factory";
-const mockTag = Factory.Tag.makeOne({ customProp: value });
-const mockTags = Factory.Tag.makeMany(5, { customProp: value });
+const mockExample = Factory.Example.makeOne();
+// mockExample output
+// { _id: "e02993ea96d7", strProp: "mockStrProp", boolProp: true }
+
+const mockExamples = Factory.Example.makeMany(2);
+// mockExamples output
+// [{ _id: "e02993ea96d7", strProp: "mockStrProp", boolProp: true }, { _id: "3ff4e0634ecc", strProp: "mockStrProp", boolProp: false }]
+```
+
+Creating mock data with custom property values.
+``` js
+const mockExample = Factory.Example.makeOne({ strProp: "Custom Value" });
+// mockExample output
+// { _id: "e02993ea96d7", strProp: "Custom Value", boolProp: true }
+```
+
+Creating mock data with custom property function.
+``` js
+const mockExamples = Factory.Example.makeMany(3, { _id: (i) => (i + 100).toString() });
+// mockExamples output
+// [{ _id: "100", strProp: "mockStrProp", boolProp: true }, { _id: "101", strProp: "mockStrProp", boolProp: false }], { _id: "102", strProp: "mockStrProp", boolProp: false }]
 ```
