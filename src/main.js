@@ -16,7 +16,7 @@ export const Factory = {};
  * @name createMock
  * @function
  * @summary Creates a mock object of faker values based on a provided schema.
- * This function is heavely based on [simpl-schema-mockdoc]{@link https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc}.
+ * This function is heavely based on [simpl-schema-mockdoc]{@link https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc} `getMockDoc` function.
  * @param {Object} schema - A SimpleSchema instance.
  * @param {String} prefix - Mock value prefix.
  * @param {Boolean} addId - True to add `_id` to mock object.
