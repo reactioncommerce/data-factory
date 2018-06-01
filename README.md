@@ -1,8 +1,6 @@
 # Data Factory
 
-_**Note:** This project is a work in progress and should not be used in production at this time._
-
-Reaction Data Factory creates a simple fixture factory from [SimpleSchema](https://github.com/aldeed/simple-schema-js) definitions for testing and seeding Reaction Commerce applications.
+Reaction Data Factory creates a simple fixture factory from [SimpleSchema](https://github.com/aldeed/simple-schema-js) definitions for testing and seeding applications.
 
 ## Install
 
@@ -50,3 +48,6 @@ const mockExamples = Factory.Example.makeMany(3, { _id: (i) => (i + 100).toStrin
 // mockExamples output
 // [{ _id: "100", strProp: "mockStrProp", boolProp: true }, { _id: "101", strProp: "mockStrProp", boolProp: false }], { _id: "102", strProp: "mockStrProp", boolProp: false }]
 ```
+
+## Thanks
+Thanks to [@MaxGuitet](https://github.com/MaxGuitet) and the team at [Cambridge Software](https://github.com/CambridgeSoftwareLtd) for their work on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) that heavily influenced this package.

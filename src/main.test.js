@@ -42,7 +42,7 @@ test("Create a mock document from Factory", () => {
   expect(mockThing).toHaveProperty("dateField");
   expect(mockThing).toHaveProperty("numberField");
   expect(mockThing).toHaveProperty("objectField");
-  expect(mockThing).toHaveProperty("stringField");
+  expect(mockThing).toHaveProperty("stringField", "mockStringField");
 });
 
 // create mock document with custom prop
@@ -62,7 +62,7 @@ test("Create 4 mock documents from Factory", () => {
 // create mock document with custom iterator function
 test("Create 4 mock documents from Factory with an iterated property value", () => {
   const mockThings = Factory.Thing.makeMany(4, {
-    _id: (i) => (i + 100).toString()
+    _id: (index) => (index + 100).toString()
   });
   expect(mockThings[0]._id).toEqual("100");
   expect(mockThings[1]._id).toEqual("101");
