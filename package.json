@@ -8,6 +8,10 @@
     "lint": "npx eslint src",
     "test": "npx jest src"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactioncommerce/data-factory.git"
+  },
   "author": "Reaction Commerce <hello@reactioncommerce.com>",
   "license": "GPL-3.0",
   "dependencies": {
