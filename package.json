@@ -49,5 +49,8 @@
   },
   "eslintConfig": {
     "extends": "@reactioncommerce"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
