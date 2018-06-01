@@ -50,4 +50,4 @@ const mockExamples = Factory.Example.makeMany(3, { _id: (i) => (i + 100).toStrin
 ```
 
 ## Thanks
-Thanks to @MaxGuitet and the team at [Cambridge Software](https://github.com/CambridgeSoftwareLtd) for their work on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) that heavily influenced this package.
+Thanks to [@MaxGuitet](https://github.com/MaxGuitet) and the team at [Cambridge Software](https://github.com/CambridgeSoftwareLtd) for their work on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) that heavily influenced this package.
