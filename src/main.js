@@ -1,10 +1,28 @@
-import _ from "lodash";
+import get from "lodash.get";
+import set from "lodash.set";
 import faker from "faker";
 import SimpleSchema from "simpl-schema";
 
 SimpleSchema.extendOptions(["mockValue"]);
 
-const getMockDoc = (schema, prefix, addId) => {
+/**
+ * @const {Object} Factory - Factory object will hold scehma factory utils
+ * for creating mock data based on the attached schema
+ */
+export const Factory = {};
+
+/**
+ *
+ * @name createMock
+ * @function
+ * @summary Creates a mock object of faker values based on a provided schema.
+ * This function is heavely based on [simpl-schema-mockdoc]{@link https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc} `getMockDoc` function.
+ * @param {Object} schema - A SimpleSchema instance.
+ * @param {String} prefix - Mock value prefix.
+ * @param {Boolean} addId - True to add `_id` to mock object.
+ * @return {Object} - Mock object based on provided schema.
+ */
+const createMock = (schema, prefix, addId) => {
   const docPrefix = prefix || "mock";
   const mockDoc = {};
   const model = schema._schema;
@@ -13,12 +31,12 @@ const getMockDoc = (schema, prefix, addId) => {
     let fieldValue = null;
 
     // If field defined by parent
-    const currentMockValue = _.get(mockDoc, `${key.replace(".$", ".0")}`);
-    if (!_.isUndefined(currentMockValue, key)) {
+    const currentMockValue = get(mockDoc, `${key.replace(".$", ".0")}`);
+    if (currentMockValue !== undefined) {
       return;
     }
 
-    const defField = _.get(model[key], "type.definitions[0]") || model[key];
+    const defField = get(model[key], "type.definitions[0]") || model[key];
 
     try {
       if (model[key].mockValue !== undefined) {
@@ -28,7 +46,7 @@ const getMockDoc = (schema, prefix, addId) => {
       } else if (model[key].autoValue !== undefined) {
         fieldValue = model[key].autoValue.call({ operator: null });
       } else if (Array.isArray(defField.allowedValues)) {
-        fieldValue = defField.allowedValues[0];
+        fieldValue = defField.allowedValues[0]; // eslint-disable-line
       } else {
         throw new Error("Invalid");
       }
@@ -47,7 +65,8 @@ const getMockDoc = (schema, prefix, addId) => {
           break;
 
         case String:
-          fieldValue = `${docPrefix}${_.upperFirst(_.camelCase(key))}`;
+          fieldValue = `${docPrefix}${key.replace(/^\w/, (char) =>
+            char.toUpperCase())}`;
           if (defField.regEx) {
             switch (String(defField.regEx)) {
               case String(String(SimpleSchema.RegEx.Email)):
@@ -110,17 +129,14 @@ const getMockDoc = (schema, prefix, addId) => {
           break;
 
         default:
-          if (
-            fieldType instanceof SimpleSchema ||
-            _.get(fieldType, "_schema")
-          ) {
-            fieldValue = getMockDoc(fieldType, prefix);
+          if (SimpleSchema.isSimpleSchema(fieldType)) {
+            fieldValue = createMock(fieldType, prefix);
           }
           break;
       }
     }
 
-    _.set(mockDoc, key.replace(".$", ".0"), fieldValue);
+    set(mockDoc, key.replace(".$", ".0"), fieldValue);
   });
 
   if (addId) {
@@ -130,30 +146,14 @@ const getMockDoc = (schema, prefix, addId) => {
   return mockDoc;
 };
 
-const clearMockValues = (schema) => {
-  if (process.env.NODE_ENV === "jesttest") {
-    return schema;
-  }
-
-  _.each(schema._schema, (field, key) => {
-    schema._schema[key] = _.omit(field, "mockValue");
-  });
-  return schema;
-};
-
-/**
- * @const {Object} Factory - todo
- * @todo write const desciption
- */
-export const Factory = {};
-
 /**
  * @name createFactoryForSchema
  * @function
  * @summary Creates Factory[propName] for building fake documents with the given schema.
- * @param {String} propName The property name to add to the `Factory` object. This should match the
+ * @param {String} propName - The property name to add to the `Factory` object. This should match the
  *   schema variable's name.
- * @param {SimpleSchema} schema A SimpleSchema instance
+ * @param {SimpleSchema} schema - A SimpleSchema instance.
+ * @return {voild} - No return.
  */
 export function createFactoryForSchema(propName, schema) {
   // eslint-disable-next-line
@@ -163,7 +163,7 @@ export function createFactoryForSchema(propName, schema) {
 
   Factory[propName] = {
     makeOne(props = {}, index) {
-      const doc = getMockDoc(schema, "mock", true);
+      const doc = createMock(schema, "mock", true);
       Object.keys(props).forEach((key) => {
         const value = props[key];
         if (typeof value === "function") {
@@ -176,8 +176,7 @@ export function createFactoryForSchema(propName, schema) {
     },
     makeMany(length, props) {
       return Array.from({ length }).map((value, index) =>
-        this.makeOne(props, index)
-      );
+        this.makeOne(props, index));
     }
   };
 }
