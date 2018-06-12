@@ -15,9 +15,9 @@ export const Factory = {};
  *
  * @name createMock
  * @function
- * @summary Creates a mock object of faker values based on a provided schema.
+ * @summary Creates a mock object of [faker]{@link https://github.com/marak/Faker.js} values based on a provided schema.
  * This function is heavely based on [simpl-schema-mockdoc]{@link https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc} `getMockDoc` function.
- * @param {Object} schema - A SimpleSchema instance.
+ * @param {SimpleSchema} schema - A [SimpleSchema]{@link https://github.com/aldeed/simple-schema-js} instance.
  * @param {String} prefix - Mock value prefix.
  * @param {Boolean} addId - True to add `_id` to mock object.
  * @return {Object} - Mock object based on provided schema.
@@ -152,8 +152,8 @@ const createMock = (schema, prefix, addId) => {
  * @summary Creates Factory[propName] for building fake documents with the given schema.
  * @param {String} propName - The property name to add to the `Factory` object. This should match the
  *   schema variable's name.
- * @param {SimpleSchema} schema - A SimpleSchema instance.
- * @return {voild} - No return.
+ * @param {SimpleSchema} schema - A [SimpleSchema]{@link https://github.com/aldeed/simple-schema-js} instance.
+ * @return {void} - No return.
  */
 export function createFactoryForSchema(propName, schema) {
   // eslint-disable-next-line
