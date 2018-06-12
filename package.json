@@ -5,6 +5,7 @@
   "main": "./dist/main.js",
   "scripts": {
     "build": "npx rimraf dist && npx babel src --out-dir dist --ignore main.test.js",
+    "docs": "npx jsdoc2md --template docs/README.hbs src/*.js > docs/README.md",
     "lint": "npx eslint src",
     "test": "npx jest src"
   },
@@ -37,6 +38,8 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.8.2",
     "jest": "^22.4.4",
+    "jsdoc": "^3.5.5",
+    "jsdoc-to-markdown": "^4.0.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^12.4.1"
   },
