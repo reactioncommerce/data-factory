@@ -15,7 +15,7 @@ for creating mock data based on the attached schema</p>
 <dl>
 <dt><a href="#createMock">createMock(schema, prefix, addId)</a> ⇒ <code>Object</code></dt>
 <dd></dd>
-<dt><a href="#createFactoryForSchema">createFactoryForSchema(propName, schema)</a> ⇒ <code>voild</code></dt>
+<dt><a href="#createFactoryForSchema">createFactoryForSchema(propName, schema)</a> ⇒ <code>void</code></dt>
 <dd></dd>
 </dl>
 
@@ -30,25 +30,25 @@ for creating mock data based on the attached schema
 
 ## createMock(schema, prefix, addId) ⇒ <code>Object</code>
 **Kind**: global function  
-**Summary**: Creates a mock object of faker values based on a provided schema.
+**Summary**: Creates a mock object of [faker](https://github.com/marak/Faker.js) values based on a provided schema.
 This function is heavely based on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) `getMockDoc` function.  
 **Returns**: <code>Object</code> - - Mock object based on provided schema.  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| schema | <code>Object</code> | A SimpleSchema instance. |
+| schema | <code>SimpleSchema</code> | A [SimpleSchema](https://github.com/aldeed/simple-schema-js) instance. |
 | prefix | <code>String</code> | Mock value prefix. |
 | addId | <code>Boolean</code> | True to add `_id` to mock object. |
 
 <a name="createFactoryForSchema"></a>
 
-## createFactoryForSchema(propName, schema) ⇒ <code>voild</code>
+## createFactoryForSchema(propName, schema) ⇒ <code>void</code>
 **Kind**: global function  
 **Summary**: Creates Factory[propName] for building fake documents with the given schema.  
-**Returns**: <code>voild</code> - - No return.  
+**Returns**: <code>void</code> - - No return.  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | propName | <code>String</code> | The property name to add to the `Factory` object. This should match the   schema variable's name. |
-| schema | <code>SimpleSchema</code> | A SimpleSchema instance. |
+| schema | <code>SimpleSchema</code> | A [SimpleSchema](https://github.com/aldeed/simple-schema-js) instance. |
 
