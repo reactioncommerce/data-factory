@@ -73,8 +73,7 @@ const createMock = (schema, prefix, addId) => {
 
         case String:
           fieldValue = `${docPrefix}${key.replace(/^\w/, (char) =>
-            char.toUpperCase()
-          )}`;
+            char.toUpperCase())}`;
           if (defField.regEx) {
             switch (String(defField.regEx)) {
               case String(String(SimpleSchema.RegEx.Email)):
@@ -184,8 +183,7 @@ export function createFactoryForSchema(propName, schema) {
     },
     makeMany(length, props) {
       return Array.from({ length }).map((value, index) =>
-        this.makeOne(props, index)
-      );
+        this.makeOne(props, index));
     }
   };
 }
