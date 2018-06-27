@@ -1,35 +1,25 @@
-Documentation
--------------
+<a name="module_Data Factory"></a>
 
-## Constants
+## Data Factory
+**See**: https://github.com/reactioncommerce/data-factory  
+**Author**: @reactioncommerce  
 
-<dl>
-<dt><a href="#Factory">Factory</a> : <code>Object</code></dt>
-<dd><p>Factory object will hold scehma factory utils
-for creating mock data based on the attached schema</p>
-</dd>
-</dl>
+* [Data Factory](#module_Data Factory)
+    * [~Factory](#module_Data Factory..Factory) : <code>Object</code>
+    * [~createMock(schema, prefix, addId)](#module_Data Factory..createMock) ⇒ <code>Object</code>
+    * [~createFactoryForSchema(propName, schema)](#module_Data Factory..createFactoryForSchema) ⇒ <code>undefined</code>
 
-## Functions
+<a name="module_Data Factory..Factory"></a>
 
-<dl>
-<dt><a href="#createMock">createMock(schema, prefix, addId)</a> ⇒ <code>Object</code></dt>
-<dd></dd>
-<dt><a href="#createFactoryForSchema">createFactoryForSchema(propName, schema)</a> ⇒ <code>void</code></dt>
-<dd></dd>
-</dl>
-
-<a name="Factory"></a>
-
-## Factory : <code>Object</code>
+### Data Factory~Factory : <code>Object</code>
 Factory object will hold scehma factory utils
 for creating mock data based on the attached schema
 
-**Kind**: global constant  
-<a name="createMock"></a>
+**Kind**: inner constant of [<code>Data Factory</code>](#module_Data Factory)  
+<a name="module_Data Factory..createMock"></a>
 
-## createMock(schema, prefix, addId) ⇒ <code>Object</code>
-**Kind**: global function  
+### Data Factory~createMock(schema, prefix, addId) ⇒ <code>Object</code>
+**Kind**: inner method of [<code>Data Factory</code>](#module_Data Factory)  
 **Summary**: Creates a mock object of [faker](https://github.com/marak/Faker.js) values based on a provided schema.
 This function is heavely based on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) `getMockDoc` function.  
 **Returns**: <code>Object</code> - - Mock object based on provided schema.  
@@ -40,12 +30,12 @@ This function is heavely based on [simpl-schema-mockdoc](https://github.com/Camb
 | prefix | <code>String</code> | Mock value prefix. |
 | addId | <code>Boolean</code> | True to add `_id` to mock object. |
 
-<a name="createFactoryForSchema"></a>
+<a name="module_Data Factory..createFactoryForSchema"></a>
 
-## createFactoryForSchema(propName, schema) ⇒ <code>void</code>
-**Kind**: global function  
+### Data Factory~createFactoryForSchema(propName, schema) ⇒ <code>undefined</code>
+**Kind**: inner method of [<code>Data Factory</code>](#module_Data Factory)  
 **Summary**: Creates Factory[propName] for building fake documents with the given schema.  
-**Returns**: <code>void</code> - - No return.  
+**Returns**: <code>undefined</code> - - No return.  
 
 | Param | Type | Description |
 | --- | --- | --- |

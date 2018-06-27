@@ -1,3 +1,10 @@
+/**
+ * @name Data Factory
+ * @module
+ * @author @reactioncommerce
+ * @see https://github.com/reactioncommerce/data-factory
+ */
+
 import get from "lodash.get";
 import set from "lodash.set";
 import faker from "faker";
@@ -66,7 +73,8 @@ const createMock = (schema, prefix, addId) => {
 
         case String:
           fieldValue = `${docPrefix}${key.replace(/^\w/, (char) =>
-            char.toUpperCase())}`;
+            char.toUpperCase()
+          )}`;
           if (defField.regEx) {
             switch (String(defField.regEx)) {
               case String(String(SimpleSchema.RegEx.Email)):
@@ -153,7 +161,7 @@ const createMock = (schema, prefix, addId) => {
  * @param {String} propName - The property name to add to the `Factory` object. This should match the
  *   schema variable's name.
  * @param {SimpleSchema} schema - A [SimpleSchema]{@link https://github.com/aldeed/simple-schema-js} instance.
- * @return {void} - No return.
+ * @return {undefined} - No return.
  */
 export function createFactoryForSchema(propName, schema) {
   // eslint-disable-next-line
@@ -176,7 +184,8 @@ export function createFactoryForSchema(propName, schema) {
     },
     makeMany(length, props) {
       return Array.from({ length }).map((value, index) =>
-        this.makeOne(props, index));
+        this.makeOne(props, index)
+      );
     }
   };
 }
