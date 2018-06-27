@@ -1,7 +1,7 @@
 /**
- * @name Data Factory
+ * @name data-factory
  * @module
- * @author @reactioncommerce
+ * @author [@reactioncommerce]{@link https://github.com/reactioncommerce}
  * @see https://github.com/reactioncommerce/data-factory
  */
 

@@ -1,25 +1,25 @@
-<a name="module_Data Factory"></a>
+<a name="module_data-factory"></a>
 
-## Data Factory
+## data-factory
 **See**: https://github.com/reactioncommerce/data-factory  
-**Author**: @reactioncommerce  
+**Author**: [@reactioncommerce](https://github.com/reactioncommerce)  
 
-* [Data Factory](#module_Data Factory)
-    * [~Factory](#module_Data Factory..Factory) : <code>Object</code>
-    * [~createMock(schema, prefix, addId)](#module_Data Factory..createMock) ⇒ <code>Object</code>
-    * [~createFactoryForSchema(propName, schema)](#module_Data Factory..createFactoryForSchema) ⇒ <code>undefined</code>
+* [data-factory](#module_data-factory)
+    * [~Factory](#module_data-factory..Factory) : <code>Object</code>
+    * [~createMock(schema, prefix, addId)](#module_data-factory..createMock) ⇒ <code>Object</code>
+    * [~createFactoryForSchema(propName, schema)](#module_data-factory..createFactoryForSchema) ⇒ <code>undefined</code>
 
-<a name="module_Data Factory..Factory"></a>
+<a name="module_data-factory..Factory"></a>
 
-### Data Factory~Factory : <code>Object</code>
+### data-factory~Factory : <code>Object</code>
 Factory object will hold scehma factory utils
 for creating mock data based on the attached schema
 
-**Kind**: inner constant of [<code>Data Factory</code>](#module_Data Factory)  
-<a name="module_Data Factory..createMock"></a>
+**Kind**: inner constant of [<code>data-factory</code>](#module_data-factory)  
+<a name="module_data-factory..createMock"></a>
 
-### Data Factory~createMock(schema, prefix, addId) ⇒ <code>Object</code>
-**Kind**: inner method of [<code>Data Factory</code>](#module_Data Factory)  
+### data-factory~createMock(schema, prefix, addId) ⇒ <code>Object</code>
+**Kind**: inner method of [<code>data-factory</code>](#module_data-factory)  
 **Summary**: Creates a mock object of [faker](https://github.com/marak/Faker.js) values based on a provided schema.
 This function is heavely based on [simpl-schema-mockdoc](https://github.com/CambridgeSoftwareLtd/simpl-schema-mockdoc) `getMockDoc` function.  
 **Returns**: <code>Object</code> - - Mock object based on provided schema.  
@@ -30,10 +30,10 @@ This function is heavely based on [simpl-schema-mockdoc](https://github.com/Camb
 | prefix | <code>String</code> | Mock value prefix. |
 | addId | <code>Boolean</code> | True to add `_id` to mock object. |
 
-<a name="module_Data Factory..createFactoryForSchema"></a>
+<a name="module_data-factory..createFactoryForSchema"></a>
 
-### Data Factory~createFactoryForSchema(propName, schema) ⇒ <code>undefined</code>
-**Kind**: inner method of [<code>Data Factory</code>](#module_Data Factory)  
+### data-factory~createFactoryForSchema(propName, schema) ⇒ <code>undefined</code>
+**Kind**: inner method of [<code>data-factory</code>](#module_data-factory)  
 **Summary**: Creates Factory[propName] for building fake documents with the given schema.  
 **Returns**: <code>undefined</code> - - No return.  
 
