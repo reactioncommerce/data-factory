@@ -19,18 +19,20 @@ const Thing = new SimpleSchema({
   }
 });
 
+const mockFactory = {
+  Thing: {
+    makeOne: expect.any(Function),
+    makeMany: expect.any(Function)
+  }
+};
+
 beforeAll(() => {
   createFactoryForSchema("Thing", Thing);
 });
 
 // attach schema to Factory
 test("createFactoryForSchema should attach schema to Factory object", () => {
-  expect(Factory).toMatchSnapshot({
-    Thing: {
-      makeOne() {},
-      makeMany() {}
-    }
-  });
+  expect(Factory).toMatchSnapshot(mockFactory);
 });
 
 // create mock document from Factory
