@@ -1,6 +1,6 @@
 {
   "name": "@reactioncommerce/data-factory",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Factory util that creates mock data fixtures based on simpl-schema definitions",
   "main": "./dist/main.js",
   "scripts": {
@@ -14,13 +14,12 @@
     "url": "git+https://github.com/reactioncommerce/data-factory.git"
   },
   "author": "Reaction Commerce <hello@reactioncommerce.com>",
-  "license": "GPL-3.0",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/reactioncommerce/data-factory/issues"
   },
   "homepage": "https://github.com/reactioncommerce/data-factory#readme",
   "dependencies": {
-    "eslint-plugin-node": "^9.1.0",
     "faker": "^4.1.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
@@ -37,6 +36,7 @@
     "eslint-plugin-jest": "^21.27.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^25.0.0",
     "jsdoc": "^3.6.3",
