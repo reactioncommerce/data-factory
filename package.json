@@ -31,6 +31,7 @@
     "simpl-schema": "^1.5.5"
   },
   "devDependencies": {
+    "@babel/preset-stage-2": "^7.0.0",
     "@reactioncommerce/eslint-config": "^2.1.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
@@ -52,15 +53,21 @@
   },
   "babel": {
     "presets": [
-      "@babel/env",
-      "stage-2"
+      "@babel/env"
     ],
     "sourceMaps": true
   },
   "eslintConfig": {
     "extends": "@reactioncommerce",
     "rules": {
-      "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }]
+      "node/no-unsupported-features/es-syntax": [
+        "error",
+        {
+          "ignores": [
+            "modules"
+          ]
+        }
+      ]
     }
   },
   "publishConfig": {
