@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Factory util that creates mock data fixtures based on simpl-schema definitions",
   "main": "./dist/main.js",
+  "engines": {
+    "node": ">=8.11.0"
+  },
   "scripts": {
     "build": "npx rimraf dist && npx babel src --out-dir dist --ignore main.test.js",
     "docs": "npx jsdoc2md --template docs/README.hbs src/*.js > docs/README.md",
@@ -20,24 +23,27 @@
   },
   "homepage": "https://github.com/reactioncommerce/data-factory#readme",
   "dependencies": {
+    "@babel/preset-env": "^7.5.5",
     "faker": "^4.1.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
+    "request": "^2.88.0",
     "simpl-schema": "^1.5.5"
   },
   "devDependencies": {
-    "@reactioncommerce/eslint-config": "^1.10.0",
+    "@reactioncommerce/eslint-config": "^2.1.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^4.19.1",
+    "eslint": "^6.2.2",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^21.27.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
     "jest": "^25.0.0",
     "jsdoc": "^3.6.3",
     "jsdoc-to-markdown": "^5.0.0",
@@ -46,13 +52,16 @@
   },
   "babel": {
     "presets": [
-      "env",
+      "@babel/env",
       "stage-2"
     ],
     "sourceMaps": true
   },
   "eslintConfig": {
-    "extends": "@reactioncommerce"
+    "extends": "@reactioncommerce",
+    "rules": {
+      "node/no-unsupported-features/es-syntax": ["error", { "ignores": ["modules"] }]
+    }
   },
   "publishConfig": {
     "access": "public"
