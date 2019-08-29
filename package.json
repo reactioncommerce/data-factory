@@ -1,6 +1,6 @@
 {
   "name": "@reactioncommerce/data-factory",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Factory util that creates mock data fixtures based on simpl-schema definitions",
   "main": "./dist/main.js",
   "engines": {
