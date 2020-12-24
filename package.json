@@ -82,7 +82,9 @@
     }
   },
   "release": {
-    "branch": "master"
+    "branches": [
+      "master"
+    ]
   },
   "publishConfig": {
     "access": "public"
